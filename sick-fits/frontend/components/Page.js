@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { createGlobalStyle } from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
 import Header from './Header';
 
 const GlobalStyles = createGlobalStyle`
@@ -28,10 +28,10 @@ box-sizing: border-box;
 }
 body {
   font-family: 'radnika_next', --apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-padding: 0; 
-margin:0; 
-font-size: 1.5rem; 
-line-height:2;
+  padding: 0; 
+  margin:0; 
+  font-size: 1.5rem; 
+  line-height:2;
 }
 a{
   text-decoration:none;
@@ -45,13 +45,18 @@ button{
 }
 `;
 
+const InnerStyles = styled.div`
+  max-width: var(--maxWidth);
+  margin: 0 auto;
+  padding: 2rem;
+`;
+
 export default function Page({ children }) {
   return (
     <div>
       <GlobalStyles />
       <Header />
-      <h2>I am the page Component</h2>
-      {children}
+      <InnerStyles>{children}</InnerStyles>
     </div>
   );
 }
